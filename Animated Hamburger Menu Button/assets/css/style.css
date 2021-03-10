@@ -1,0 +1,208 @@
+body {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	background: black; 
+}
+
+a {
+	text-decoration: none;
+}
+
+/*Navigation Bar*/
+nav {
+	height: 50px;
+	width: 100%;
+}
+
+/*The Code For The Button Starts Here*/
+
+/*Wrapper*/
+.button-wrapper {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}
+
+/*Hamburger Menu*/
+.menu-btn {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+	transition: all .5s ease-in-out;
+}
+
+.menu-btn__burger {
+	width: 50px;
+	height: 6px;
+	background: #fff;
+	border-radius: 5px;
+	/*box-shadow: 0 2px 5px grey;*/
+	transition: all .25s ease-in-out;
+}
+.menu-btn__burger::before,
+.menu-btn__burger::after {
+	content: "";
+	position: absolute;
+	width: 50px;
+	height: 6px;
+	background: #fff;
+	border-radius: 5px;
+	/*box-shadow: 0 2px 5px grey;*/
+	transition: all .5s ease-in-out;
+}
+.menu-btn__burger::before {
+	transform: translateY(-16px);
+}
+.menu-btn__burger::after {
+	transform: translateY(16px);
+}
+/*Menu Button Animation*/
+.menu-btn.open .menu-btn__burger {
+	box-shadow: none;
+	animation: remove-stick cubic-bezier(0.42, 0, 0.58, 1) forwards .75s;
+}
+
+.menu-btn.open .menu-btn__burger::before {
+	animation: animate-first 1s ease-in-out forwards;
+}
+
+.menu-btn.open .menu-btn__burger::after {
+	animation: animate-second 1s ease-in-out forwards;
+}
+
+.menu-btn.close .menu-btn__burger::before {
+	animation: animate-first-back 1s ease-in-out forwards;
+}
+
+.menu-btn.close .menu-btn__burger::after {
+	animation: animate-second-back 1s ease-in-out forwards;
+}
+
+.menu-btn.close .menu-btn__burger {
+	box-shadow: none;
+	animation: bring-stick ease-in-out forwards 2s;
+}
+
+@keyframes animate-first {
+	0% {
+		transform: translateY(-16px);
+	}
+	50% {
+		transform: translateY(0px);
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(45deg);
+	}
+
+}
+
+@keyframes animate-second {
+	0% {
+		transform: translateY(16px);
+	}
+	50% {
+		transform: translateY(0px);
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(-45deg);
+	}
+
+}
+
+@keyframes animate-first-back {
+	0% {
+		
+		transform: rotate(-45deg);
+	}
+	50% {
+		transform: rotate(0deg);
+		transform: translateY(0px);
+	}
+	100% {
+		transform: translateY(-16px);
+	}
+
+}
+
+@keyframes animate-second-back {
+	0% {
+		transform: rotate(45deg);
+	}
+	50% {
+		transform: rotate(0deg);
+		transform: translateY(0px);
+	}
+	100% {
+		transform: translateY(16px);
+	}
+
+}
+
+@keyframes bring-stick {
+	from {
+		background: none;
+	}
+	to {
+		background: #fff;
+	}
+
+}
+
+@keyframes remove-stick {
+	from {
+		background: #fff;
+	}
+	to {
+		background: none;
+	}
+
+}
+
+/*No Click Class*/
+.noclick {
+	pointer-events: none;
+}
+
+/*The Code For The Button Ends Here*/
+
+/*Navigation Links*/
+
+.active {
+	color: #cccccc!important;
+}
+
+div.nav-links > a {
+	color: grey;
+	font-size: 24pt;
+	padding: 0 5px;
+	font-family: Bebas Neue;
+	position: relative;
+}
+
+div.nav-links > a:hover {
+	color: #fff!important;
+	animation: bigger .5s ease-in-out forwards;
+} 
+
+@keyframes bigger {
+	from {
+		font-size: 24pt;
+	}
+	to {
+		font-size: 26pt;
+	}
+}
+/*Navgation Links Wrapper*/
+div.nav-links {
+	text-align: center;
+	margin: 0 auto;
+	padding-top: 5px;
+}
